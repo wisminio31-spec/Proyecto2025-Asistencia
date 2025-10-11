@@ -12,7 +12,7 @@
      <br>
  <a href="{{ route('prueba') }}">Prueba</a>
  <br>
-  <a href="{{ route('estudiantes') }}">estudiantes</a>
+  <a href="{{ route('estudiantes.index') }}">estudiantes</a>
 
 </body>
 </html>

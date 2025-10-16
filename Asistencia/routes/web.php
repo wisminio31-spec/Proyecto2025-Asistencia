@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use App\Models\Estudiante;
-use App\Http\Controllers\EstudiantesController; // <--- Nombre correcto del controlador
+use App\Http\Controllers\EstudianteController; // <--- Correcto
+
+
 
 Route::get("/", function () {
     $estudiante = new Estudiante();
@@ -14,7 +16,7 @@ Route::get("/", function () {
     $estudiante->dni = '32534';
     $estudiante->save();
 
-    return view('welcome');
+return view('welcome');
 }); 
 
 Route::get('/greeting', function () {
@@ -29,10 +31,10 @@ Route::get('/prueba', function () {
     return 'Prueba';
 })->name('prueba');
 
-// Esta ruta apunta a una vista simple (sin datos)
 Route::get('/estudiante', function () {
     return view('estudiantes');
 })->name('estudiantes');
 
-// Esta es la ruta correcta que usa el controlador y muestra los datos
-Route::get('/estudiantes', [EstudiantesController::class, 'index'])->name('estudiantes.index');
+// ¡Esta línea debe estar activa!
+Route::get('/estudiantes', [EstudianteController::class, 'index'])->name('estudiantes.index');
+Route::get('/estudiantes', [EstudiantesController::class, 'index']);
